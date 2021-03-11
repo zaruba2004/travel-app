@@ -7,17 +7,21 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Travel-app
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button>language</button>
+      </header>      
+      <footer>
+        <div className="App-footer">
+          <a href="https://github.com/zaruba2004/travel-app/tree/main" target="_blank" rel="noopener noreferrer">
+            github zaruba2004
+          </a>
+          <p>2021</p>
+          <a href="https://rs.school/js" target="_blank" rel="noopener noreferrer">
+            <img width="100px" src="./images/logo-rss.png" alt="logo-rss"/>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }

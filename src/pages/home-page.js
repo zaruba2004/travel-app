@@ -14,8 +14,7 @@ export default function HomePage (props){
                                 </div>
                                 <div className="col-md-6 p-4 ps-md-0">
                                     <h5 className="mt-0">{land.nameCountry}</h5>
-                                    <p>{land.city}</p>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                                    <p>{land.city}</p>                                    
                                     <Link to={`/country/${land.id}`}>
                                         <a href="#" className="stretched-link">Подробнее...</a>
                                     </Link>    

@@ -2,7 +2,7 @@ import React from 'react';
 import './descriptionPage.css'; 
 import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { YMaps, Map, Placemark } from "react-yandex-maps";
+import { YMaps, Map, Placemark, FullscreenControl } from "react-yandex-maps";
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
@@ -15,19 +15,17 @@ export default function DescriptionPagee (props){
             <p>{country.title}</p>            
             <ReactPlayer url={country.video} controls={true} />            
             <YMaps>
-                <Map
-                    defaultState={country.map}
-                >
-                    <Placemark geometry={country.placeMark} />
+                <Map defaultState={country.map}>                    
+                    <Placemark modules={['geoObject.addon.balloon']} defaultGeometry={country.placeMark}
+                        properties={{balloonContentBody:`${country.nameCountry}. ${country.city}`}} />
+                    <FullscreenControl />
                 </Map>
             </YMaps>
              <div className="place-feald">
-                <h6>Достопремичательности</h6>   {/*className="card stretched-link" style={{width: "13rem"}} */}
+                <h3>Достопремичательности</h3>
                 <ul>
                     {country.gallery.map(sight => {
                         return  <li key={sight.id}>
-                                    {/* <div><img className="card-img-top" src={sight.image} alt={sight.place} /></div>
-                                    <p>{sight.describtion}</p> */}
                                     <div className="card">
                                     <img src={sight.image} className="card-img-top" alt={sight.place} />
                                     <div className="card-body">

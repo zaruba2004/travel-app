@@ -1,17 +1,27 @@
 import React from 'react';
 import './descriptionPage.css'; 
 import { useParams, Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
+import { YMaps, Map, Placemark } from "react-yandex-maps";
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
     const country = props.country[id-1];
     return (
-        <div>
+        <div className="container">
             <img src={`.${country.image}`} className="img-fluid" alt={country.nameCountry}></img>
             <h2>{country.nameCountry}</h2>
             <p>{country.city}</p>
-            <p>{country.title}</p>
-             <div className="place-feald container">
+            <p>{country.title}</p>            
+            <ReactPlayer url={country.video} controls={true} />            
+            <YMaps>
+                <Map
+                    defaultState={country.map}
+                >
+                    <Placemark geometry={country.placeMark} />
+                </Map>
+            </YMaps>
+             <div className="place-feald">
                 <h6>Достопремичательности</h6>   {/*className="card stretched-link" style={{width: "13rem"}} */}
                 <ul>
                     {country.gallery.map(sight => {

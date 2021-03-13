@@ -3,6 +3,7 @@ import './descriptionPage.css';
 import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { YMaps, Map, Placemark, FullscreenControl } from "react-yandex-maps";
+import Weather from '../components/weather';
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
@@ -12,7 +13,8 @@ export default function DescriptionPagee (props){
             <img src={`.${country.image}`} className="img-fluid" alt={country.nameCountry}></img>
             <h2>{country.nameCountry}</h2>
             <p>{country.city}</p>
-            <p>{country.title}</p>            
+            <p>{country.title}</p>
+            <Weather metricData={country.placeMark} weatheCity={country.city}/>          
             <ReactPlayer url={country.video} controls={true} />            
             <YMaps>
                 <Map defaultState={country.map}>                    

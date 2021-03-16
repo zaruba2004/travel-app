@@ -4,17 +4,20 @@ import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { YMaps, Map, Placemark, FullscreenControl } from "react-yandex-maps";
 import Weather from '../components/weather';
+import Exchange from '../components/exchange';
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
     const country = props.country[id-1];
+
     return (
         <div className="container">
             <img src={`.${country.image}`} className="img-fluid" alt={country.nameCountry}></img>
             <h2>{country.nameCountry}</h2>
             <p>{country.city}</p>
             <p>{country.title}</p>
-            <Weather metricData={country.placeMark} weatheCity={country.city}/>          
+            <Weather metricData={country.placeMark} weatheCity={country.city} times={country.time}/> 
+            <Exchange />         
             <ReactPlayer url={country.video} controls={true} />            
             <YMaps>
                 <Map defaultState={country.map}>                    

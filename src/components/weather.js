@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
+import Clock from './clock'
+
 
 export default function Weather(props) {
   const { data, isLoading, errorMessage } = useOpenWeather({
@@ -10,14 +12,16 @@ export default function Weather(props) {
     unit: 'metric', // values are (metric, standard, imperial)
   });
   return (
-    <ReactWeather
-      isLoading={isLoading}
-      errorMessage={errorMessage}
-      data={data}
-      lang="ru"
-      locationLabel={props.weatheCity}
-      unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-      showForecast     //false-не показывать погоду за 5 дней
-    />
+    <div>  
+        <ReactWeather
+        isLoading={isLoading}
+        errorMessage={errorMessage}
+        data={data}
+        lang="ru"
+        locationLabel={<Clock city={props.weatheCity} time={props.times}/>}
+        unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+        showForecast     //false-не показывать погоду за 5 дней
+        />
+    </div>    
   );
 };

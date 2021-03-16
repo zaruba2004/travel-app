@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { YMaps, Map, Placemark, FullscreenControl } from "react-yandex-maps";
 import Weather from '../components/weather';
-import Exchange from '../components/exchange';
+// import Exchange from '../components/exchange';
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
@@ -16,11 +16,13 @@ export default function DescriptionPagee (props){
             <h2>{country.nameCountry}</h2>
             <p>{country.city}</p>
             <p>{country.title}</p>
-            <Weather metricData={country.placeMark} weatheCity={country.city} times={country.time}/> 
-            <Exchange />         
-            <ReactPlayer url={country.video} controls={true} />            
+            <div className='widghetFeald'>
+                {/* <Exchange codeCoutry={country.code}/> */}
+                <Weather metricData={country.placeMark} weatheCity={country.city} times={country.time} /> 
+            </div>
+            <ReactPlayer width='auto' url={country.video} controls={true} />      
             <YMaps>
-                <Map defaultState={country.map}>                    
+                <Map width='auto' defaultState={country.map}>                    
                     <Placemark modules={['geoObject.addon.balloon']} defaultGeometry={country.placeMark}
                         properties={{balloonContentBody:`${country.nameCountry}. ${country.city}`}} />
                     <FullscreenControl />

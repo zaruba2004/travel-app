@@ -20,7 +20,7 @@ export default function Weather(props) {
         lang="ru"
         locationLabel={<Clock city={props.weatheCity} time={props.times}/>}
         unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-        showForecast     //false-не показывать погоду за 5 дней
+        showForecast={false}    //false-не показывать погоду за 5 дней
         />
     </div>    
   );

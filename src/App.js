@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import HomePage from './pages/home-page';
 import DescriptionPage from './pages/descriptionPage';
-import data from './data';
+import dataRu from './dataRu';
+import dataEng from './dataEng';
+import dataByn from './dataByn';
 
 function App() {
+  const [state, setState] = useState(dataRu);
+
+    function ruText(){
+      setState(dataRu)
+    }
+
+    function engText(){
+      setState(dataEng)
+    }
+
+    function bynText(){
+      setState(dataByn)
+    }
 
   return (
     <Router>
@@ -17,18 +32,17 @@ function App() {
             Travel-app
           </p>
           <div>
-            <button>RU</button>
-            <button>ENG</button>
-            <button>BLR</button>
+            <button onClick={()=>ruText()}>RU</button>
+            <button onClick={()=>engText()}>ENG</button>
+            <button onClick={()=>bynText()}>BLR</button>
           </div>
         </header>
         <Switch>
           <Route path='/country/:id'>  
-            <DescriptionPage country={data}/> 
+            <DescriptionPage country={state}/> 
           </Route>
           <Route path='/'>  
-            <HomePage country={data}/> 
-            {/* <HomePage country={country}/>  */}
+            <HomePage country={state}/> 
           </Route>
          </Switch>    
         <footer>

@@ -15,7 +15,7 @@ function App() {
 
     function ruText(){
       setLanguage(dataRu);
-      setData(dataRu);
+      setData(dataRu)
     }
 
     function engText(){

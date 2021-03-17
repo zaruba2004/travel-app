@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 export default function HomePage (props){
     return (
         <div className='main-feald'>
-            {/* <button onclick={()=>props.closeInput()}>Clouse</button> */}
             <ul>
                 {props.country.map(land=>{
                     return <li key={land.id}>                                         

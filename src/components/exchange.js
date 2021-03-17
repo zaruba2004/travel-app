@@ -38,9 +38,7 @@ export default class Exchange extends React.Component {
             return <p>Loading...</p>
         } else {
             return  <div>
-                        <p>Курс $ - {(items[code]).toFixed(2)}</p>
-                        <p>Курс &euro; - {(items[code]/items['EUR']).toFixed(2)}</p>
-                        <p>Курс BYN - {(items[code]/items['BYN']).toFixed(2)}</p>
+                        <h5>$ - {(items[code]).toFixed(2)}, &euro; - {(items[code]/items['EUR']).toFixed(2)}, BYN - {(items[code]/items['BYN']).toFixed(2)}</h5>
                     </div>            
             }
     }

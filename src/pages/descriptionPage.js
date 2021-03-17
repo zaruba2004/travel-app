@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { YMaps, Map, Placemark, FullscreenControl } from "react-yandex-maps";
 import Weather from '../components/weather';
-// import Exchange from '../components/exchange';
+import Exchange from '../components/exchange';
 
 export default function DescriptionPagee (props){
     const {id} = useParams();
@@ -17,7 +17,7 @@ export default function DescriptionPagee (props){
             <p>{country.city}</p>
             <p>{country.title}</p>
             <div className='widghetFeald'>
-                {/* <Exchange codeCoutry={country.code}/> */}
+                <Exchange codeCoutry={country.code}/>
                 <Weather metricData={country.placeMark} weatheCity={country.city} times={country.time} /> 
             </div>
             <ReactPlayer width='auto' url={country.video} controls={true} />      

@@ -7,7 +7,6 @@ import DescriptionPage from './pages/descriptionPage';
 import dataRu from './dataRu';
 import dataEng from './dataEng';
 import dataByn from './dataByn';
-// import HomePage from './pages/home-page';
 
 function App() {
   const [data, setData] = useState(dataRu);

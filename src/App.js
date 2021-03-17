@@ -28,9 +28,9 @@ function App() {
       setData(DataByn);
     }
     function removeCountry(e) {      
-      const value = e.target.value;
-      value.toLowerCase();
-      setData(language.filter(item => item.nameCountry.toLowerCase().includes(value)));
+      let value = e.target.value;
+      let newValue= value.toLowerCase();
+      setData(language.filter(item => item.nameCountry.toLowerCase().includes(newValue)));
      };
   
   return (

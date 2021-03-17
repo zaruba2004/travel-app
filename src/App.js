@@ -14,17 +14,17 @@ function App() {
 
     function ruText(){
       setLanguage(dataRu);
-      setData(dataRu)
+      setData(dataRu);
     }
 
     function engText(){
       setLanguage(dataEng);
-      setData(dataEng)
+      setData(dataEng);
     }
 
     function bynText(){
       setLanguage(dataByn);
-      setData(dataByn)
+      setData(dataByn);
     }
     function removeCountry(e) {      
       const value = e.target.value;

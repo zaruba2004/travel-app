@@ -29,7 +29,7 @@ export default function DescriptionPagee (props){
                 </Map>
             </YMaps>
              <div className="place-feald">
-                <h3>Достопремичательности</h3>
+                <h3>Достопремичательности:</h3>
                 <ul>
                     {country.gallery.map(sight => {
                         return  <li key={sight.id}>

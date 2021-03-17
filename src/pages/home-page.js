@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 export default function HomePage (props){
     return (
         <div className='main-feald'>
+            {/* <button onclick={()=>props.closeInput()}>Clouse</button> */}
             <ul>
                 {props.country.map(land=>{
                     return <li key={land.id}>                                         
@@ -14,9 +15,9 @@ export default function HomePage (props){
                                 </div>
                                 <div className="col-md-6 p-4 ps-md-0">
                                     <h5 className="mt-0">{land.nameCountry}</h5>
-                                    <p>{land.city}</p>                                    
-                                    <Link to={`/country/${land.id}`}>
-                                        <a href="#" className="stretched-link">Подробнее...</a>
+                                    <p>{land.city}</p>                                                                        
+                                    <Link className="stretched-link" to={`/country/${land.id}`}>
+                                        Подробнее...
                                     </Link>    
                                 </div>
                                 </div>

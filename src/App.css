@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  width: 100px;
+  width: 80px;
   pointer-events: none;
+  margin: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

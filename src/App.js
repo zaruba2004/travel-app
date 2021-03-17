@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import logo from './logo.svg';
+import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
+import logo from './logo.png';
 import './App.css';
 import HomePage from './pages/home-page';
 import DescriptionPage from './pages/descriptionPage';
@@ -9,40 +9,62 @@ import dataEng from './dataEng';
 import dataByn from './dataByn';
 
 function App() {
-  const [state, setState] = useState(dataRu);
+  const [data, setData] = useState(dataRu);
+  const [language, setLanguage] = useState(dataRu);
+  const [state, setState] = useState({
+    isVisiblInput: true
+  })
+
+
+    function closeInput(id){ 
+      setState({isVisiblInput: false});
+    } 
+
 
     function ruText(){
-      setState(dataRu)
+      setLanguage(dataRu);
+      setData(dataRu)
     }
 
     function engText(){
-      setState(dataEng)
+      setLanguage(dataEng);
+      setData(dataEng)
     }
 
     function bynText(){
-      setState(dataByn)
+      setLanguage(dataByn);
+      setData(dataByn)
     }
+    function removeCountry(e) {      
+      const value = e.target.value;
+      value.toLowerCase();
+      setData(language.filter(item => item.nameCountry.toLowerCase().includes(value)));
+     };
 
+ 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Travel-app
-          </p>
+        <Link to={`/`}><img src={logo} className="App-logo" alt="logo" /></Link>
           <div>
-            <button onClick={()=>ruText()}>RU</button>
-            <button onClick={()=>engText()}>ENG</button>
-            <button onClick={()=>bynText()}>BLR</button>
+            <p>Travel-app</p>
+            {state.isVisiblInput && (<label>
+              <input className="form-control me-2" placeholder='' tipe='text' onChange={removeCountry} />
+            </label>)}             
+          </div>
+          <div>            
+            <button className='btn btn-outline-light btn-sm' onClick={()=>ruText()}>RU</button>
+            <button className='btn btn-outline-light btn-sm' onClick={()=>engText()}>ENG</button>
+            <button className='btn btn-outline-light btn-sm' onClick={()=>bynText()}>BLR</button>
           </div>
         </header>
         <Switch>
           <Route path='/country/:id'>  
-            <DescriptionPage country={state}/> 
+            <DescriptionPage country={data}/> 
           </Route>
           <Route path='/'>  
-            <HomePage country={state}/> 
+            <HomePage country={data}/> 
           </Route>
          </Switch>    
         <footer>

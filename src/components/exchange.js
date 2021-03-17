@@ -27,7 +27,8 @@ export default class Exchange extends React.Component {
              })
          )
     };
-    
+
+   
     render(){
         const code = this.props.codeCoutry
         const {error, isLoaded, items} = this.state;

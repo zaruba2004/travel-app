@@ -4,28 +4,28 @@ import logo from './logo.png';
 import './App.css';
 import './pages/home-page.css';
 import DescriptionPage from './pages/descriptionPage';
-import dataRu from './dataRu';
-import dataEng from './dataEng';
-import dataByn from './dataByn';
+import DataRu from './dataRu';
+import DataEng from './dataEng';
+import DataByn from './dataByn';
 // import HomePage from './pages/home-page';
 
 function App() {
-  const [data, setData] = useState(dataRu);
-  const [language, setLanguage] = useState(dataRu);
+  const [data, setData] = useState(DataRu);
+  const [language, setLanguage] = useState(DataRu);
 
     function ruText(){
-      setLanguage(dataRu);
-      setData(dataRu)
+      setLanguage(DataRu);
+      setData(DataRu)
     }
 
     function engText(){
-      setLanguage(dataEng);
-      setData(dataEng);
+      setLanguage(DataEng);
+      setData(DataEng);
     }
 
     function bynText(){
-      setLanguage(dataByn);
-      setData(dataByn);
+      setLanguage(DataByn);
+      setData(DataByn);
     }
     function removeCountry(e) {      
       const value = e.target.value;

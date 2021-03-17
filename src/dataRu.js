@@ -1,4 +1,4 @@
-export default [
+const dataRu = [
     {
         id: 1,
         image: './images/belarus.jpg', 
@@ -392,3 +392,5 @@ export default [
     ]
     }
 ]
+
+export default dataRu
